@@ -70,7 +70,9 @@ desired effect
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-
+          <li>
+            <a href="{{ route('home')}}" >@lang('Home')</a> 
+          </li>
           <!-- Notifications Menu -->
           @if ($countNotifications)
             <li class="dropdown notifications-menu">
