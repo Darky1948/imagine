@@ -4,7 +4,7 @@
 
 ### Installation ###
 
-* type `git clone https://github.com/bestmomo/laravel5-5-example.git projectname` to clone the repository 
+* type `git clone https://github.com/Darky1948/imagine.git projectname` to clone the repository 
 * type `cd projectname`
 * type `composer install`
 * type `composer update`
@@ -72,4 +72,3 @@ You can then use Dusk.
 
 ### License ###
 
-This Laravel project is based on the following example : [bestmomo/laravel5-5-example](https://github.com/bestmomo/laravel5-5-example)
