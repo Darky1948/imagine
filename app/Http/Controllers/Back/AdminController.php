@@ -59,6 +59,9 @@ class AdminController extends Controller
         $actualConnection = env('DB_CONNECTION');
         $connections = ['mysql', 'sqlite', 'pgsql'];
 
+        $actualAccueil = config ('app.accueil');
+        $listeAccueil = ['categories', 'posts'];
+
         return view('back.settings', compact (
             'locales',
             'actualLocale',
@@ -69,7 +72,9 @@ class AdminController extends Controller
             'caches',
             'actualCacheDriver',
             'connections',
-            'actualConnection'
+            'actualConnection',
+            'actualAccueil',
+            'listeAccueil'            
         ));
     }
 

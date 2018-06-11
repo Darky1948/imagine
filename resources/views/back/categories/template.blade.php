@@ -1,5 +1,12 @@
 @extends('back.layout')
 
+@section('css')
+    <style>
+        textarea { resize: vertical; }
+    </style>
+    <link href="{{ asset('adminlte/plugins/colorbox/colorbox.css') }}" rel="stylesheet">
+@endsection
+
 @section('main')
 
     @yield('form-open')
@@ -32,6 +39,28 @@
                         'required' => true,
                     ],
                 ])
+
+                @component('back.components.box')
+                    @slot('type')
+                        primary
+                    @endslot
+                    @slot('boxTitle')
+                        @lang('Image')
+                    @endslot
+                    <img id="img" src="@isset($category) {{ $category->image }} @endisset" alt="" class="img-responsive">
+                    @slot('footer')
+                        <div class="{{ $errors->has('image') ? 'has-error' : '' }}">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <a href="" class="popup_selector btn btn-primary" data-inputid="image">@lang('Select an image')</a>
+                                </div>
+                                <!-- /btn-group -->
+                                <input class="form-control" type="text" id="image" name="image" value="{{ old('image', isset($category) ? $category->image : '') }}">
+                            </div>
+                            {!! $errors->first('image', '<span class="help-block">:message</span>') !!}
+                        </div>
+                    @endslot
+                @endcomponent                
                 <button type="submit" class="btn btn-primary">@lang('Submit')</button>
             </div>
 
@@ -44,6 +73,8 @@
 @section('js')
 
     <script src="{{ asset('adminlte/plugins/voca/voca.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/colorbox/jquery.colorbox-min.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>    
     <script>
 
         $('#slug').keyup(function () {
@@ -54,6 +85,25 @@
             $('#slug').val(v.slugify($(this).val()))
         })
 
-    </script>
+        //CKEDITOR.replace('body', {customConfig: '/adminlte/js/ckeditor.js'})
 
+        $('.popup_selector').click( function (event) {
+            event.preventDefault()
+            var updateID = $(this).attr('data-inputid')
+            var elfinderUrl = '/elfinder/popup/'
+            var triggerUrl = elfinderUrl + updateID
+            $.colorbox({
+                href: triggerUrl,
+                fastIframe: true,
+                iframe: true,
+                width: '100%',
+                height: '100%'
+            })
+        })
+
+        function processSelectedFile(filePath, requestingField) {
+            $('#' + requestingField).val('\\' + filePath)
+            $('#img').attr('src', '\\' + filePath)
+        }
+    </script>
 @endsection

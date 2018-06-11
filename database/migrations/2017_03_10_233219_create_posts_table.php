@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration {
 			$table->boolean('active')->default(false);
 			$table->integer('user_id')->unsigned();
 			$table->string('image')->nullable();
+			$table->boolean('comments_active')->default(true);
 		});
 	}
 

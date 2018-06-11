@@ -37,6 +37,7 @@ class PostController extends Controller
     {
         $this->postRepository = $postRepository;
         $this->nbrPages = config('app.nbrPages.front.posts');
+        $this->typeAccueil = config('app.accueil');
     }
 
     /**
@@ -47,8 +48,14 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postRepository->getActiveOrderByDate($this->nbrPages);
+        if ($this->typeAccueil == 'categories') {
+            $categories = Category::all();
+            return view('front.index', compact('posts', 'categories'));
+        }else{
+            return view('front.index', compact('posts'));
+        }
 
-        return view('front.index', compact('posts'));
+        
     }
 
     /**

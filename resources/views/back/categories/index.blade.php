@@ -35,6 +35,7 @@
                         <tr>
                             <th>#</th>
                             <th>@lang('Title')</th>
+                            <th>@lang('Image')</th>
                             <th>@lang('Slug')</th>
                             <th>@lang('Total')</th>
                             <th></th>

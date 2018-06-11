@@ -84,6 +84,14 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="accueil">@lang('Accueil')</label>
+                                        <select id="accueil" name="accueil" class="form-control">
+                                            @foreach($listeAccueil as $accueil)
+                                                <option value="{{ $accueil }}" {{ old('accueil') ? ($accueil === old('accueil') ? 'selected' : '') : $accueil === $actualAccueil ? 'selected' : '' }}>{{ $accueil }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>                                  
                                     <button class="btn btn-primary" type="submit">@lang('Submit')</button>
                                 </form>
                             </div>

@@ -80,6 +80,7 @@
 		</div> <!-- end col-twelve -->
    	</div> <!-- end row -->
 
+     @if ($post->comments_active)
 	<div class="comments-wrap">
 		<div id="comments" class="row">
             @if (session('warning'))
@@ -135,6 +136,7 @@
 
 		</div> <!-- end row comments -->
 	</div> <!-- end comments-wrap -->
+    @endif
 
    </section> <!-- end content -->
 

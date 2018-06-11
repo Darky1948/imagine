@@ -32,6 +32,10 @@ class ConfigAppRepository
             'locale',
             "/('locale' => ')(.+)(')/"
         ],
+        'accueil' => [
+            'accueil',
+            "/('accueil' => ')(.+)(')/"
+        ],        
         'timezone' => [
             'timezone',
             "/('timezone' => ')(.+)(')/"

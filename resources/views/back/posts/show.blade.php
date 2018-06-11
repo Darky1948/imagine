@@ -58,6 +58,9 @@
                     <p>@lang('META Keywords')</p>
                     {{ $post->meta_keywords }}
                     <hr>
+                    <p>@lang('Commentaires')</p>
+                    {{ $post->comments_active  ? __('Active') : __('No Active')}}
+                    <hr>                    
                     <p>@lang('Status')</p>
                     {{ $post->active ? __('Active') : __('No Active')}}
                     <hr>

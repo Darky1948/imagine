@@ -21,5 +21,6 @@ $factory->define(App\Models\Post::class, function (Faker $faker) {
         'excerpt' => $faker->paragraph($nbSentences = 4, $variableNbSentences = true),
         'body' => $faker->paragraphs($nb = 8, $asText = true),
         'active' => true,
+        'comments_active' => true,
     ];
 });

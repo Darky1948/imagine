@@ -125,6 +125,15 @@
                             'label' => __('Active'),
                         ],
                     ])
+                    @include('back.partials.input', [
+                        'input' => [
+                            'name' => 'comments_active',
+                            'value' => isset($post) ? $post->comments_active : false,
+                            'input' => 'checkbox',
+                            'title' => __('Commentaires'),
+                            'label' => __('Active'),
+                        ],
+                    ])                    
                 @endcomponent
 
                 @component('back.components.box')

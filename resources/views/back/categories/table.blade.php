@@ -2,6 +2,7 @@
     <tr>
         <td>{{ $category->id }}</td>
         <td>{{ $category->title }}</td>
+        <td><img src="{{ thumb($category->image) }}" alt=""></td>
         <td>{{ $category->slug }}</td>
         <td>{{ $category->posts_count }}</td>
         <td><a class="btn btn-warning btn-xs btn-block" href="{{ route('categories.edit', [$category->id]) }}" role="button" title="@lang('Edit')"><span class="fa fa-edit"></span></a></td>

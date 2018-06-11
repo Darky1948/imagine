@@ -27,12 +27,20 @@
             <div class="bricks-wrapper">
 
                 <div class="grid-sizer"></div>
+@if(isset($categories))
+                @foreach ($categories as $category)
 
+                    @include('front.categories', compact('$category'))
+
+                @endforeach
+
+@else
                 @foreach($posts as $post)
 
                     @include('front.brick-standard', compact('$post'))
 
                 @endforeach
+@endif
 
             </div>
 
@@ -43,6 +51,8 @@
             {{ $posts->links('front.pagination') }}
 
         </div>
+
+
     </section> <!-- end bricks -->
 
 @endsection

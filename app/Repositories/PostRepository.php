@@ -211,6 +211,7 @@ class PostRepository
     public function update($post, $request)
     {
         $request->merge(['active' => $request->has('active')]);
+        $request->merge(['comments_active' => $request->has('comments_active')]);
 
         $post->update($request->all());
 
@@ -227,6 +228,7 @@ class PostRepository
     {
         $request->merge(['user_id' => auth()->id()]);
         $request->merge(['active' => $request->has('active')]);
+        $request->merge(['comments_active' => $request->has('comments_active')]);
 
         $post = Post::create($request->all());
 
